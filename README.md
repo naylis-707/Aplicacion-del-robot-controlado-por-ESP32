@@ -1,10 +1,8 @@
-# robot_controller_pro
-
-A new Flutter project.
+# APLICACION DEL ROBOT CONTROLADO POR ESP32
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Esta aplicacion fue realizada con ayuda de Flutter
 
 A few resources to get you started if this is your first Flutter project:
 
