@@ -1,0 +1,42 @@
+name: robot_controller_pro
+description: "Aplicación profesional para control de robots e IoT"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  http: ^1.2.0 
+  # State Management & DI
+  flutter_riverpod: ^2.4.9
+  # Routing
+  go_router: ^12.1.1
+  # Networking
+  web_socket_channel: ^2.4.1
+  # Storage
+  shared_preferences: ^2.2.2
+  # UI & Animations
+  flutter_animate: ^4.2.0+1
+  google_fonts: ^6.1.0
+  flutter_svg: ^2.0.9
+  # Sensors & Utils
+  vector_math: ^2.1.4
+  google_generative_ai: ^0.4.6 
+  flutter_tts: ^4.2.2
+  audioplayers: ^6.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/lottie/
+    - assets/images/
