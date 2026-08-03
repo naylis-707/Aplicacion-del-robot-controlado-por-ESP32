@@ -31,7 +31,7 @@ class LightsCommand implements RobotCommand {
   @override
   Map<String, dynamic> toJson() => {
     "type": "lights",
-    "enabled": enabled,
+    "state": enabled,
   };
 }
 
@@ -72,5 +72,16 @@ class AutoModeCommand implements RobotCommand {
   Map<String, dynamic> toJson() => {
     "type": "auto",
     "enabled": enabled,
+  };
+}
+
+class ServoCommand implements RobotCommand {
+  final int angle; // Ángulo al que quieres que gire (ej: 0, 90, 180)
+  ServoCommand(this.angle);
+
+  @override
+  Map<String, dynamic> toJson() => {
+    "type": "servo",
+    "angle": angle,
   };
 }

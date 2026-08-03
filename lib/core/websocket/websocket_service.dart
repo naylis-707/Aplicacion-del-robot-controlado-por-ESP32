@@ -42,7 +42,9 @@ class WebSocketNotifier extends StateNotifier<WebSocketState> {
   Timer? _pingTimer;
   DateTime? _lastPingTime;
   
-  final String _url = 'ws://192.168.4.1:81'; // ESP32 Default AP IP
+  Function(Map<String, dynamic>)? onMessageReceived;
+  
+  final String _url = 'ws://192.168.4.1:81';
 
   void connect() {
     if (state.status == WebSocketStatus.connected) return;
@@ -72,11 +74,14 @@ class WebSocketNotifier extends StateNotifier<WebSocketState> {
     
     try {
       final data = jsonDecode(message as String);
+      
       if (data['type'] == 'pong' && _lastPingTime != null) {
         final latency = DateTime.now().difference(_lastPingTime!).inMilliseconds;
         state = state.copyWith(latencyMs: latency);
       }
-      // Aquí se parsearía SensorData, BatteryData, etc.
+      
+      onMessageReceived?.call(data);
+      
     } catch (_) {
       // Ignorar mensajes malformados
     }
